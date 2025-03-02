@@ -18,7 +18,30 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FDFDFC;
+}
+
+.text-primary {
+  color: #687ECF;
+}
+
+.bg-primary {
+  background-color: #687ECF;
+}
+
+.text-secondary {
+  color: #E0B0FF;
+}
+
+.bg-secondary {
+  background-color: #E0B0FF;
+}
+
+.text-tertiary {
+  color: #8E9DD3;
+}
+
+.container {
+  max-width: 1540px;
+  margin: auto;
 }
