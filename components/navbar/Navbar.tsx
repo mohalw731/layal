@@ -31,9 +31,9 @@ export default function Navbar() {
       <header
         className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
           isScrolled ? "bg-[#FDFDFC] text-black shadow-md" : "bg-transparent text-white"
-        } ${isMenuOpen && "bg-primary shadow-none"}`}
+        } ${isMenuOpen && "bg-[#536DC9] shadow-none"}`}
       >
-        <div className="container flex h-20 items-center justify-between px-6">
+        <div className=" flex h-20 items-center justify-between md:px-8 px-4">
           <Link href="/" className="text-2xl font-bold text-secondary">
             <span className="block">Layal</span>
             <span className="block -mt-1">mirror booth</span>
@@ -45,9 +45,9 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="size-10 text-black transition-all duration-300" />
+              <X className="size-10 text-secondary transition-all duration-300 cursor-pointer" />
             ) : (
-              <Menu2 className={`size-10 transition-all duration-300 ${isScrolled ? "text-primary" : "text-white"}`} />
+              <Menu2 className={`size-10 transition-all duration-300 ${isScrolled ? "text-primary" : "text-white"} cursor-pointer`} />
             )}
           </button>
         </div>

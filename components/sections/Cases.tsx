@@ -1,9 +1,10 @@
 import React from 'react'
+import CasesCarusel from '../cases/CasesCarusel'
 
 export default function Cases() {
   return (
-    <main className="min-h-screen">
-      
+    <main className="  my-12">
+      <CasesCarusel />
     </main>
   )
 }

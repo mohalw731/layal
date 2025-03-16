@@ -1,4 +1,10 @@
 @import "tailwindcss";
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 
 @theme {
   --font-sans: var(--font-geist-sans);
@@ -22,11 +28,11 @@ body {
 }
 
 .text-primary {
-  color: #687ECF;
+  color: #536DC9;
 }
 
 .bg-primary {
-  background-color: #687ECF;
+  background-color: #FDFDFC;
 }
 
 .text-secondary {

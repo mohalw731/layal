@@ -52,7 +52,7 @@ export function Menu({ isOpen }: MenuProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-40 flex items-center justify-center bg-primary transition-all duration-500 ${
+      className={`fixed inset-0 z-40 flex items-center justify-center bg-[#536DC9] transition-all duration-500 ${
         isOpen ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
@@ -66,12 +66,13 @@ export function Menu({ isOpen }: MenuProps) {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <Link href={link.href} className="text-7xl font-bold text-black text-secondary hover:text-black">
+              <Link href={link.href} className="text-7xl font-bold text-secondary">
                 {link.label}
               </Link>
             </li>
           ))}
         </ul>
+        
       </nav>
     </div>
   )
