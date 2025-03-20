@@ -3,7 +3,6 @@ import { Instagram, Music } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import Title from "../ui/Title"
 
 export default function Footer() {
   return (
