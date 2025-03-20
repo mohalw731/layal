@@ -9,7 +9,7 @@ export function Faq() {
   return (
     <div className="md:p-8 p-4" id="faq">
       <h2 className="text-2xl font-bold text-primary md:text-4xl lg:text-5xl my-6">
-        Vad brukar folk undra <span className="text-secondary"> ?</span>
+        Vanliga frågor <span className="text-secondary"> .</span>
       </h2>
       <Accordion type="single" collapsible className="w-full ">
         <AccordionItem value="item-1">

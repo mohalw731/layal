@@ -49,8 +49,24 @@ export const ServicesData = [
 
   export const Testimonials = [
     {
-      name: "John Doe",
-      rating: 3.5,
-      quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      name: "A & P",
+      rating: 5,
+      quote: "Vi vill tacka er enormt mycket för ert underbara och proffesionella jobb ! Alla gäster var mer än nöjda och vi kunde inte varit mer nöjda än vårat valav att ha er på vår speciella dag . Tusen tack"
+    },
+    {
+      name: "R & R",
+      rating: 5,
+      quote: "Tack så mycket för denna upplevelse! Vi är så nöjda och glada att vi valde er. Allt var så proffsigt och vi är så nöjda med resultatet. Tack för att ni var med och gjorde vår dag ännu bättre!"
+    },
+    {
+      name: "H & J",
+      rating: 5,
+      quote: "Världens bästa team, så GRYMMA!!! Vi var så jävla nöjda med allting. Så bra bemötande ingen som er. Tack för att ni var med och gjorde vår dag ännu bättre!"
+    }
+    ,
+    {
+      name: "J & E",
+      rating: 5,
+      quote: "Stort tack för att ni var med och förgyllde vår dag! Vi är så nöjda med allt och alla gäster var så nöjda och glada. Tack för att ni var med och gjorde vår dag ännu bättre!"
     }
   ]

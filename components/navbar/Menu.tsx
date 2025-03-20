@@ -15,9 +15,8 @@ export function Menu({ isOpen, toggleMenu }: MenuProps) {
   const links = [
     { href: "/", label: "Hem" },
     { href: "#omoss", label: "Om oss" },
-    { href: "#tjanster", label: "Våra Tjänster" },
+    { href: "/foretag", label: "Företag" },    
     { href: "#faq", label: "Vanliga Frågor" },
-    { href: "/foretag", label: "För Företag" },
     { href: "#kontakt", label: "Kontakt oss" },
   ]
 
@@ -59,7 +58,7 @@ export function Menu({ isOpen, toggleMenu }: MenuProps) {
       }`}
     >
       <nav className="container mx-auto px-6">
-        <ul className="flex flex-col items-center space-y-6 text-start justify-center">
+        <ul className="flex flex-col items-center space-y-6 ">
           {links.map((link, index) => (
             <li
               key={index}
@@ -68,7 +67,7 @@ export function Menu({ isOpen, toggleMenu }: MenuProps) {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <Link href={link.href} className="md:text-7xl text-4xl font-bold text-secondary" onClick={toggleMenu}>
+              <Link href={link.href} className="md:text-6xl text-4xl font-bold text-secondary" onClick={toggleMenu}>
                 {link.label}
               </Link>
             </li>

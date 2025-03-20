@@ -41,10 +41,10 @@ function useMediaQuery(query: string): boolean {
 }
 
 // Modal Button Component
-function ModalButton() {
+function ModalButton2() {
   return (
     <button
-      className={`group flex items-center space-x-2 text-2xl font-medium text-white transition-all hover:text-secondary`}
+      className={`group flex items-center space-x-2 text-xl font-medium text-primary transition-all hover:text-secondary`}
     >
       <span>Få prisförslag</span>
       <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -79,7 +79,7 @@ interface FormErrors {
   postalCode?: string
 }
 
-export default function BookingModal() {
+export default function BookingModal2() {
   const [open, setOpen] = useState(false)
   const [step, setStep] = useState(1)
   const [date, setDate] = useState<Date>(new Date())
@@ -288,7 +288,7 @@ export default function BookingModal() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <div>
-          <ModalButton  />
+          <ModalButton2  />
         </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px] rounded-2xl">

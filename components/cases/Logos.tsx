@@ -7,7 +7,8 @@ import logo4 from '../../public/logo4.png'
 
 export default function Logos() {
   return (
-<main className="mt-14 mb-5">
+<main className="mt-14 mb-5 flex flex-col items-center justify-center ">
+  <span className='font-bold text-secondary bg-tertiary p-2 rounded-full px-3 text-sm md:block hidden'>Våra kunder</span>
 <div className=' md:flex justify-center items-center space-x-14 hidden'>
       <Image src={logo1} width={150} height={150} className="mb-3" alt="logo1" />
       <Image src={logo2} width={180} height={100} className=" max-w-[140px] h-12" alt="logo1" />

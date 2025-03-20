@@ -13,7 +13,7 @@ export default function ServicesCarousel() {
     } else {
       controls.start({
         x: ['0%', '-100%'],
-        transition: { repeat: Infinity, duration: 45, ease: 'linear' },
+        transition: { repeat: Infinity, duration: 60, ease: 'linear' },
       });
     }
   }, [isPaused, controls]);
@@ -21,9 +21,8 @@ export default function ServicesCarousel() {
   return (
     <div
       className="relative w-full overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      onMouseDown={() => setIsPaused(true)}
-      onMouseUp={() => setIsPaused(false)}
     >
       <motion.div
         className="flex gap-4"
@@ -33,7 +32,7 @@ export default function ServicesCarousel() {
         {[...Array(2)].map((_, i) => (
           <div key={i} className="flex gap-4">
             {ServicesData.map((service, index) => (
-              <ServicesCard key={index} title={service.title} description={service.description} />
+              <ServicesCard key={`${i}-${index}`} title={service.title} description={service.description} icon={service.icon} />
             ))}
           </div>
         ))}
@@ -42,10 +41,14 @@ export default function ServicesCarousel() {
   );
 }
 
-const ServicesCard = ({ title, description } : { title: string; description: string }) => {
+const ServicesCard = ({ title, description,icon } : { title: string; description: string; icon: string }) => {
   return (
     <div className='bg-primary rounded-2xl p-8 max-w-[350px] min-w-[300px] mt-4'>
-      <h2 className='text-2xl text-primary font-black mb-4'>{title}</h2>
+      <div className=" flex items-center justify-between">
+      <h2 className='text-2xl text-primary font-black mb-4'>{title}</h2>      
+      <span className='text-4xl text-secondary'>{icon}</span>
+
+      </div>
       <p className='text-tertiary'>{description}</p>
     </div>
   );

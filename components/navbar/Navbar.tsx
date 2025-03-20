@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { MenuIcon as Menu2, X } from "lucide-react"
 import { Menu } from "./Menu"
+import Image from "next/image"
+import logo from "../../public/logo.svg"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -29,18 +31,16 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
-          isScrolled ? "bg-[#536DC9] text-black shadow-md" : "bg-transparent text-white"
-        } ${isMenuOpen && "bg-[#536DC9] shadow-none"}`}
+        className={`absolute left-0 top-0 z-50 w-full transition-all duration-300 bg-transparent`}
       >
-        <div className=" flex h-20 items-center justify-between md:px-8 px-4">
-          <Link href="/" className="text-2xl font-bold text-secondary">
-            <span className="block">Layal</span>
-            <span className="block -mt-1">mirror booth</span>
+        <div className="flex h-20 items-center justify-between md:px-8 px-4">
+          <Link href="/" className="mt-20">
+            <Image src={logo} alt="Logo" 
+          className="md:w-[150px] w-[120px]" height={50} />
           </Link>
 
           <button
-            className="relative z-50 flex items-center justify-center focus:outline-none"
+            className="relative z-50 flex items-center justify-center focus:outline-none mt-16"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -57,4 +57,3 @@ export default function Navbar() {
     </>
   )
 }
-

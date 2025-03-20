@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import aboutus from "../../public/delivery.jpeg";
-import Modalbutton from "../ui/Modalbutton";
+import Modalbutton2 from "../ui/Modalbutton2";
 
 export default function DeliverSection() {
   return (
@@ -12,10 +12,7 @@ export default function DeliverSection() {
           <span className="text-secondary"> ?</span>
         </h2>
         <p className="md:text-lg text-tertiary ">
-          Välkommen till Leyalmirrorbooth! En mirror booth är det ultimata
-          tillägget för att höja stämningen på ditt event. Oavsett om det är ett
-          bröllop, företagsevent, eller födelsedagsfest, kommer vår moderna
-          fotobås att bli kvällens höjdpunkt och en riktig snackis. Vi levererar
+        Vi erbjuder kostnadsfri leverans till de markerade städerna. För leveranser till andra orter tillkommer en liten avgift, beroende på destination och avstånd. Vänligen kontakta oss för mer information om leveransmöjligheter och kostnader för din specifika plats.
         </p>
 
         <div className=" flex f md:flex-row md:space-x-10 space-x-5">
@@ -88,7 +85,7 @@ export default function DeliverSection() {
           </ul>
         </div>
 
-        <Modalbutton />
+        <Modalbutton2  />
       </div>
 
       <Image

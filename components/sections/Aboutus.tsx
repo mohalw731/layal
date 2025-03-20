@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import aboutus from "../../public/aboutus.webp";
-import Modalbutton from "../ui/Modalbutton";
+import Modalbutton2 from "../ui/Modalbutton2";
 
 export default function Aboutus() {
   return (
@@ -27,7 +27,7 @@ export default function Aboutus() {
           varje tillställning unik och minnesvärd!
         </p>
 
-<Modalbutton />
+<Modalbutton2 />
       </div>
 
       <Image
