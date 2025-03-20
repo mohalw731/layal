@@ -1,10 +1,9 @@
 "use client"
 
-import { useState, type FormEvent, type ChangeEvent } from "react"
+import { useState, type FormEvent, type ChangeEvent, useEffect } from "react"
 import { format } from "date-fns"
 import { sv } from "date-fns/locale"
 import { CalendarIcon } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import {
@@ -22,8 +21,24 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { cn } from "@/lib/utils"
-import emailjs from '@emailjs/browser'; // Importera EmailJS
+import emailjs from '@emailjs/browser'
 
+// Custom hook to detect mobile devices
+function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia(query)
+    if (media.matches !== matches) {
+      setMatches(media.matches)
+    }
+    const listener = () => setMatches(media.matches)
+    media.addListener(listener)
+    return () => media.removeListener(listener)
+  }, [matches, query])
+
+  return matches
+}
 
 // Modal Button Component
 function ModalButton({ color }: { color: string }) {
@@ -74,9 +89,9 @@ export default function BookingModal() {
     to: undefined,
   })
 
-  const EMAILJS_SERVICE_ID = 'service_ak38e0t';
-const EMAILJS_TEMPLATE_ID_USER = 'template_q7rau7w';
-const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
+  const EMAILJS_SERVICE_ID = 'service_ak38e0t'
+  const EMAILJS_TEMPLATE_ID_USER = 'template_q7rau7w'
+  const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
 
   // Form state
   const [formData, setFormData] = useState<FormData>({
@@ -95,6 +110,9 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
 
   // Form errors state
   const [errors, setErrors] = useState<FormErrors>({})
+
+  // Detect mobile devices
+  const isMobile = useMediaQuery("(max-width: 768px)")
 
   // Handle input changes
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -131,13 +149,13 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
 
   // Form submission
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-  
-    // Validera steget innan inskick
-    if (!validateStep3()) return;
-  
+    e.preventDefault()
+
+    // Validate step 3 before submission
+    if (!validateStep3()) return
+
     try {
-      // Skicka e-post till användaren och en kopia till dig själv
+      // Send email using EmailJS
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID_USER,
@@ -155,17 +173,16 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
           additional_info: formData.additionalInfo,
         },
         EMAILJS_USER_ID
-      );
-  
-      console.log('E-post skickad!');
-      setOpen(false);
-      setStep(1);
-      resetForm();
+      )
+
+      console.log('E-post skickad!')
+      setOpen(false)
+      setStep(1)
+      resetForm()
     } catch (error) {
-      console.error('E-post kunde inte skickas:', error);
+      console.error('E-post kunde inte skickas:', error)
     }
-  };
-  
+  }
 
   // Reset form
   const resetForm = () => {
@@ -280,7 +297,7 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
   const timeSlots = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
   return (
-    <Dialog open={open} onOpenChange={setOpen} >
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <div>
           <ModalButton color="primary" />
@@ -301,39 +318,52 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
             <div className="space-y-4">
               <div className="flex flex-col space-y-2">
                 <Label>Datum</Label>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant={"outline"}
-                      className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
-                    >
-                      <CalendarIcon className="mr-2 h-4 w-4" />
-                      {date?.from ? (
-                        date.to ? (
-                          <>
-                            {format(date.from, "d MMM yyyy", { locale: sv })} -{" "}
-                            {format(date.to, "d MMM yyyy", { locale: sv })}
-                          </>
+                {isMobile ? (
+                  // Always show the calendar on mobile devices
+                  <Calendar
+                    mode="range"
+                    defaultMonth={date.from}
+                    selected={date}
+                    onSelect={handleDateSelect as any}
+                    numberOfMonths={1} // Show only one month on mobile
+                    locale={sv}
+                  />
+                ) : (
+                  // Use Popover for larger devices
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant={"outline"}
+                        className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {date?.from ? (
+                          date.to ? (
+                            <>
+                              {format(date.from, "d MMM yyyy", { locale: sv })} -{" "}
+                              {format(date.to, "d MMM yyyy", { locale: sv })}
+                            </>
+                          ) : (
+                            format(date.from, "d MMM yyyy", { locale: sv })
+                          )
                         ) : (
-                          format(date.from, "d MMM yyyy", { locale: sv })
-                        )
-                      ) : (
-                        <span>Välj datumintervall</span>
-                      )}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      initialFocus
-                      mode="range"
-                      defaultMonth={date.from}
-                      selected={date}
-                      onSelect={handleDateSelect as any}
-                      numberOfMonths={2}
-                      locale={sv}
-                    />
-                  </PopoverContent>
-                </Popover>
+                          <span>Välj datumintervall</span>
+                        )}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        initialFocus
+                        mode="range"
+                        defaultMonth={date.from}
+                        selected={date}
+                        onSelect={handleDateSelect as any}
+                        numberOfMonths={2}
+                        locale={sv}
+                      />
+                    </PopoverContent>
+                  </Popover>
+                )}
                 {errors.startDate && <p className="text-sm text-destructive">{errors.startDate}</p>}
                 {errors.endDate && <p className="text-sm text-destructive">{errors.endDate}</p>}
               </div>
@@ -453,12 +483,11 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
               </div>
 
               <div className="flex flex-col space-y-2">
-                <Label htmlFor="additionalInfo">Typ av event? Antal gäster och annan viktig info
-                </Label>
+                <Label htmlFor="additionalInfo">Typ av event? Antal gäster och annan viktig info</Label>
                 <Textarea
                   id="additionalInfo"
                   name="additionalInfo"
-                  placeholder="Anatl gäster 8 st, bröllop, födelsedagsfest, företagsevent"
+                  placeholder="Antal gäster 8 st, bröllop, födelsedagsfest, företagsevent"
                   className="resize-none"
                   value={formData.additionalInfo}
                   onChange={handleInputChange}
@@ -470,21 +499,23 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
 
           <DialogFooter className="flex justify-between">
             {step > 1 ? (
-              <button type="button" onClick={prevStep} className=" p-2 rounded-md text-sm px-3 hover:cursor-pointer"> 
+              <button type="button" onClick={prevStep} className="p-2 rounded-md text-sm px-3 hover:cursor-pointer">
                 Tillbaka
               </button>
             ) : (
-              <button type="button" onClick={() => setOpen(false)} className=" bg-red-700 text-white p-2 rounded-md text-sm px-3 hover:cursor-pointer">
+              <button type="button" onClick={() => setOpen(false)} className="bg-red-700 text-white p-2 rounded-md text-sm px-3 hover:cursor-pointer">
                 Avbryt
               </button>
             )}
 
             {step < 3 ? (
-              <button type="button" onClick={nextStep} className=" bg-secondary p-2 rounded-md text-sm px-3 hover:cursor-pointer">
+              <button type="button" onClick={nextStep} className="bg-secondary p-2 rounded-md text-sm px-3 hover:cursor-pointer">
                 Nästa
               </button>
             ) : (
-              <button className="p-2 rounded-md text-sm px-3 hover:cursor-pointer bg-secondary" type="submit">Boka</button>
+              <button className="p-2 rounded-md text-sm px-3 hover:cursor-pointer bg-secondary" type="submit">
+                Boka
+              </button>
             )}
           </DialogFooter>
         </form>
@@ -492,4 +523,3 @@ const EMAILJS_USER_ID = '6gLAIoDcMd6QCQKYI'
     </Dialog>
   )
 }
-

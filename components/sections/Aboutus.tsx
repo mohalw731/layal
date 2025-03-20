@@ -5,7 +5,7 @@ import Modalbutton from "../ui/Modalbutton";
 
 export default function Aboutus() {
   return (
-    <main className="md:p-8 p-4 flex flex-col md:flex-row items-center justify-evenly ">
+    <main className="md:p-8 p-4 flex flex-col md:flex-row items-center justify-evenly " id="omoss">
       <div className=" max-w-[700px]  space-y-4">
         <span className="bg-[#E0B0FF] px-4 py-2 rounded-full text-primary font-bold ">
           Om oss

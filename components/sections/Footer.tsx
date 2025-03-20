@@ -6,9 +6,8 @@ import { Textarea } from "@/components/ui/textarea"
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#f8f8f5] md:p-8 p-4">
+    <footer className="w-full bg-[#f8f8f5] md:p-8 p-4" id="kontakt">
       <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10">
-        {/* Left column - Contact form */}
         <div>
         <h2 className="text-2xl font-bold text-primary md:text-4xl lg:text-5xl my-6">
           Kontakta oss
@@ -45,10 +44,7 @@ export default function Footer() {
             </div>
 
             <div className="flex gap-3 pt-2">
-              <Button className="bg-[#5d5fef] hover:bg-[#4b4ddb] text-white">Skicka</Button>
-              <Button variant="outline" className="bg-[#e9d5ff] hover:bg-[#dbc4f0] text-[#5d5fef] border-none">
-                Boka oss
-              </Button>
+              <Button className="bg-[#5d5fef] hover:bg-[#4b4ddb] text-secondary cursor-pointer">Skicka</Button>
             </div>
           </form>
         </div>
@@ -63,14 +59,20 @@ export default function Footer() {
             <Link href="#" className="block text-[#5d5fef]">
               Hem
             </Link>
-            <Link href="#" className="block text-[#5d5fef]">
+            <Link href="#omoss" className="block text-[#5d5fef]">
               Om oss
             </Link>
-            <Link href="#" className="block text-[#5d5fef]">
+            <Link href="#tjanster" className="block text-[#5d5fef]">
+              Tjäsnter
+            </Link>
+            <Link href="/foretag" className="block text-[#5d5fef]">
+              För företag
+            </Link>
+            <Link href="#faq" className="block text-[#5d5fef]">
               Vanliga frågor
             </Link>
-            <Link href="#" className="block text-[#5d5fef]">
-              Kontakt
+            <Link href="#kontakt" className="block text-[#5d5fef]">
+              Kontakt oss
             </Link>
           </nav>
 

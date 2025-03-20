@@ -5,18 +5,20 @@ import Link from "next/link"
 
 interface MenuProps {
   isOpen: boolean
+  toggleMenu?: () => void
 }
 
-export function Menu({ isOpen }: MenuProps) {
+export function Menu({ isOpen, toggleMenu }: MenuProps) {
   const [mounted, setMounted] = useState(false)
   const [animatedLinks, setAnimatedLinks] = useState<boolean[]>([])
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/gallery", label: "Gallery" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Hem" },
+    { href: "#omoss", label: "Om oss" },
+    { href: "#tjanster", label: "Våra Tjänster" },
+    { href: "#faq", label: "Vanliga Frågor" },
+    { href: "/foretag", label: "För Företag" },
+    { href: "#kontakt", label: "Kontakt oss" },
   ]
 
   useEffect(() => {
@@ -66,7 +68,7 @@ export function Menu({ isOpen }: MenuProps) {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <Link href={link.href} className="text-7xl font-bold text-secondary">
+              <Link href={link.href} className="md:text-7xl text-4xl font-bold text-secondary" onClick={toggleMenu}>
                 {link.label}
               </Link>
             </li>

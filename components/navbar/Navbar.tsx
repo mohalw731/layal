@@ -53,7 +53,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      <Menu isOpen={isMenuOpen} />
+      <Menu isOpen={isMenuOpen} toggleMenu={toggleMenu} />
     </>
   )
 }
