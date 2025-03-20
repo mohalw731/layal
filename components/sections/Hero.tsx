@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../navbar/Navbar";
 import Image from "next/image";
 import hero from "../../public/hero.png";
+import Modalbutton from "../ui/Modalbutton";
 
 export default function Hero() {
   return (
@@ -30,10 +31,7 @@ export default function Hero() {
           <h1 className="mb-6 text-5xl font-bold text-primary md:text-6xl lg:text-7xl">
             <span className="text-secondary">Mirror Booth</span> till ditt event
           </h1>
-          <button className="group flex items-center space-x-2 text-xl font-medium text-white transition-all hover:text-secondary">
-            <span>Boka oss nu</span>
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </button>
+          <Modalbutton   />
         </div>
       </section>
     </main>

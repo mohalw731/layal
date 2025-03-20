@@ -3,7 +3,7 @@ import CasesCarusel from '../cases/CasesCarusel'
 
 export default function Cases() {
   return (
-    <main className="  my-12">
+    <main className='mb-20' >
       <CasesCarusel />
     </main>
   )

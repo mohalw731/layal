@@ -45,3 +45,12 @@ export const ServicesData = [
       description: "Grundpriset är 4999:- ex moms, och vid längre hyresperiod eller leveranser utanför vår zon kan extra avgifter tillkomma."
     }
   ];
+
+
+  export const Testimonials = [
+    {
+      name: "John Doe",
+      rating: 3.5,
+      quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  ]

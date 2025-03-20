@@ -30,7 +30,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
-          isScrolled ? "bg-[#FDFDFC] text-black shadow-md" : "bg-transparent text-white"
+          isScrolled ? "bg-[#536DC9] text-black shadow-md" : "bg-transparent text-white"
         } ${isMenuOpen && "bg-[#536DC9] shadow-none"}`}
       >
         <div className=" flex h-20 items-center justify-between md:px-8 px-4">
@@ -47,7 +47,7 @@ export default function Navbar() {
             {isMenuOpen ? (
               <X className="size-10 text-secondary transition-all duration-300 cursor-pointer" />
             ) : (
-              <Menu2 className={`size-10 transition-all duration-300 ${isScrolled ? "text-primary" : "text-white"} cursor-pointer`} />
+              <Menu2 className={`size-10 transition-all duration-300 ${isScrolled ? "text-secondary" : "text-white"} cursor-pointer`} />
             )}
           </button>
         </div>
