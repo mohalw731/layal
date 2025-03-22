@@ -8,10 +8,11 @@ import card2 from '../../public/card2.png';
 import card3 from '../../public/card3.png';
 import card4 from '../../public/card4.png';
 import card5 from '../../public/card5.png';
+import card8 from '../../public/card8.png';
 // import card6 from '../../public/card6.jpeg';
 import Title from '../ui/Title';
 
-const images = [card1, card2, card3, card4, card5, ];
+const images = [card1, card2, card3, card4, card5, card8 ];
 
 export default function CasesCarousel() {
   const [isPaused, setIsPaused] = useState(false);

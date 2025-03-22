@@ -92,7 +92,7 @@ export default function DeliverSection() {
         src={aboutus}
         alt="Sparkly background"
         height={1000}
-        className="object-cover border-10 border-[#F5F6F0] rounded-2xl md:w-[400px] w-full md:mt-0 mt-4 grayscale"
+        className="object-cover border-10 border-[#F5F6F0] rounded-2xl md:w-[400px] w-full md:mt-0 mt-4 "
       />
     </main>
   );

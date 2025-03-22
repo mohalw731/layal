@@ -124,6 +124,31 @@ export default function BookingModal() {
       })
     }
   }
+    const handleDateSelect = (selectedDate: Date | undefined) => {
+    if (selectedDate) {
+      setDate(selectedDate);
+      setFormData({
+        ...formData,
+        startDate: selectedDate,
+      });
+
+      // Clear date errors
+      if (errors.startDate) {
+        setErrors({
+          ...errors,
+          startDate: undefined,
+        });
+      }
+    }
+  }
+
+  // Define modifiersStyles to customize the selected date
+  const modifiersStyles = {
+    selected: {
+      backgroundColor: 'black',
+      color: 'white',
+    },
+  };
 
   // Handle select changes
   const handleSelectChange = (value: string, name: string) => {
@@ -264,23 +289,7 @@ export default function BookingModal() {
     setStep(step - 1)
   }
 
-  const handleDateSelect = (selectedDate: Date | undefined) => {
-    if (selectedDate) {
-      setDate(selectedDate);
-      setFormData({
-        ...formData,
-        startDate: selectedDate,
-      });
 
-      // Clear date errors
-      if (errors.startDate) {
-        setErrors({
-          ...errors,
-          startDate: undefined,
-        });
-      }
-    }
-  }
 
   const timeSlots = ["00:00","01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00",]
 
@@ -302,7 +311,7 @@ export default function BookingModal() {
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {step === 1 && (
+        {step === 1 && (
             <div className="space-y-4">
               <div className="flex flex-col space-y-2">
                 <Label>Datum</Label>
@@ -315,6 +324,7 @@ export default function BookingModal() {
                     defaultMonth={date}
                     numberOfMonths={1} // Show only one month on mobile
                     locale={sv}
+                    modifiersStyles={modifiersStyles} // Apply custom styles
                   />
                 ) : (
                   // Use Popover for larger devices
@@ -337,6 +347,7 @@ export default function BookingModal() {
                         defaultMonth={date}
                         numberOfMonths={2}
                         locale={sv}
+                        modifiersStyles={modifiersStyles} // Apply custom styles
                       />
                     </PopoverContent>
                   </Popover>
