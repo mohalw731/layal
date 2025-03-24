@@ -42,7 +42,7 @@ export const ServicesData = [
     {
       icon: "💲",
       title: "Priser från 2999:- ex moms",
-      description: "Grundpriset är 4999:- ex moms, och vid längre hyresperiod eller leveranser utanför vår zon kan extra avgifter tillkomma."
+      description: "Grundpriset är 2999:- ex moms, och vid längre hyresperiod eller leveranser utanför vår zon kan extra avgifter tillkomma."
     }
   ];
 
