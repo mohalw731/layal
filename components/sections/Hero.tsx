@@ -2,9 +2,8 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 import Navbar from "../navbar/Navbar";
-import Image from "next/image";
-import hero from "../../public/hero.png";
 import Modalbutton from "../ui/Modalbutton";
+// import hero from "../../public/";
 
 export default function Hero() {
   const pathname = usePathname();
@@ -13,18 +12,18 @@ export default function Hero() {
     <main className="min-h-screen">
       <Navbar />
       <section className="relative h-screen w-full">
-        {/* Background Image */}
+        {/* Background Video */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src={hero}
-            alt="Sparkly background"
-            fill
-            priority
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             className="absolute top-0 left-0 w-full h-full object-cover brightness-50 md:bg-black"
-            placeholder="blur"
-            quality={100}
-            sizes="100vw"
-          />
+          >
+            <source src="/hero.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         {/* Content */}
