@@ -31,24 +31,24 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`absolute left-0 top-0 z-50 w-full transition-all duration-300 bg-transparent`}
+        className={`fixed ${isScrolled ? "bg-[#EEEEEE] shadow-md" : "bg-transparent"} left-0 top-0 z-50 w-full transition-all duration-300 `}
       >
         <div className="flex h-20 items-center justify-between md:px-8 px-4">
-          <Link href="/" className="mt-20">
+          <Link href="/" className="">
             {/* <Image src={logo} alt="Logo" 
           className="md:w-[150px] w-[120px]" height={50} /> */}
-          <h2 className="text-3xl leading-8 font-bold text-primary  ">Leyal <br /><span className="text-secondary"> Mirror booth</span></h2>
+          <h2 className="text-2xl leading-6 font-bold text-primary  ">Leyal <br /><span className="text-secondary"> Mirror booth</span></h2>
           </Link>
 
           <button
-            className="relative z-50 flex items-center justify-center focus:outline-none mt-16"
+            className="relative z-50 flex items-center justify-center focus:outline-none "
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
               <X className="size-10 text-secondary transition-all duration-300 cursor-pointer" />
             ) : (
-              <Menu2 className={`size-10 transition-all duration-300 ${isScrolled ? "text-secondary" : "text-white"} cursor-pointer`} />
+              <Menu2 className={`size-10 transition-all duration-300 ${isScrolled ? "text-secondary" : "text-primary"} cursor-pointer`} />
             )}
           </button>
         </div>
