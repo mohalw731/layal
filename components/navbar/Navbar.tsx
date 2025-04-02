@@ -35,8 +35,9 @@ export default function Navbar() {
       >
         <div className="flex h-20 items-center justify-between md:px-8 px-4">
           <Link href="/" className="mt-20">
-            <Image src={logo} alt="Logo" 
-          className="md:w-[150px] w-[120px]" height={50} />
+            {/* <Image src={logo} alt="Logo" 
+          className="md:w-[150px] w-[120px]" height={50} /> */}
+          <h2 className="text-3xl leading-8 font-bold text-primary  ">Leyal <br /><span className="text-secondary"> Mirror booth</span></h2>
           </Link>
 
           <button

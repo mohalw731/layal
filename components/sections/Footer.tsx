@@ -37,7 +37,7 @@ export default function Footer() {
       <div className="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
           <h2 className="text-2xl font-bold text-primary md:text-4xl lg:text-5xl my-6">
-            Kontakta oss
+            Vid frågor kontakta oss 
             <span className="text-secondary"> .</span>
           </h2>
           <form ref={form} onSubmit={sendEmail} className="space-y-4">

@@ -5,7 +5,7 @@ import Modalbutton2 from "../ui/Modalbutton2";
 
 export default function DeliverSection() {
   return (
-    <main className="md:p-8 p-4 flex flex-col md:flex-row items-center justify-evenly ">
+    <main className="md:p-8 p-4 flex flex-col-reverse md:flex-row items-center justify-evenly ">
       <div className=" max-w-[700px]  space-y-4">
         <h2 className="text-2xl font-bold text-primary md:text-4xl lg:text-5xl my-6">
           Vart levererar vi

@@ -5,7 +5,7 @@ import Modalbutton2 from "../ui/Modalbutton2";
 
 export default function Aboutus() {
   return (
-    <main className="md:p-8 p-4 flex flex-col md:flex-row items-center justify-evenly " id="omoss">
+    <main className="md:p-8 p-4 flex flex-col-reverse md:flex-row items-center justify-evenly " id="omoss">
       <div className=" max-w-[700px]  space-y-4">
         <span className="bg-[#E0B0FF] px-4 py-2 rounded-full text-primary font-bold ">
           Om oss
@@ -34,7 +34,7 @@ export default function Aboutus() {
         src={aboutus}
         alt="Sparkly background"
         height={1000}
-        className="object-cover border-10 border-[#F5F6F0] rounded-2xl md:w-[400px] w-full md:mt-0 mt-4"
+        className="object-cover border-10 border-[#F5F6F0] rounded-2xl md:w-[400px] w-full md:mt-0 mb-10"
         />
     </main>
   );
