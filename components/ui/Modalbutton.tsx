@@ -501,7 +501,7 @@ export default function BookingModal() {
               </button>
             ) : (
               <button className="p-2 rounded-md text-sm px-3 hover:cursor-pointer bg-secondary" type="submit">
-                Boka
+                Få prisförslag
               </button>
             )}
           </DialogFooter>
